@@ -1,3 +1,5 @@
+set positional-arguments
+
 # List available commands.
 [default]
 [private]
@@ -17,12 +19,12 @@ build:
 # Run the example executable.
 [group('run')]
 run *args:
-    uv run --locked example {{ args }}
+    uv run --locked example "$@"
 
 # Run the test suite.
 [group('test')]
 test *args:
-    uv run --locked pytest {{ args }}
+    uv run --locked pytest "$@"
 
 # Sort imports and format Python files.
 [group('format')]
